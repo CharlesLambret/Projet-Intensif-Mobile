@@ -1,19 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import Homepage from './Routes/accueil/accueil.js';
-import Listeanimaux from './Routes/liste-animaux/listeanimaux.js';
-import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Homepage from "./Routes/Homepage/homepage";
+
+export default function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="adoptionanimaux" element={<Listeanimaux />} />
-        <Route path="detailscore" element={<Detailduscore/>} />
-      </Routes>
-    </div>
+    <Homepage/>
   );
 }
-
-export default App;
