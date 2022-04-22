@@ -1,8 +1,8 @@
 
-import Homepage from "./Routes/Homepage/homepage";
+import HomepageAdoption from "./Routes/Homepages/homepageadopter";
 
 export default function App() {
   return (
-    <Homepage/>
+    <HomepageAdoption/>
   );
 }
