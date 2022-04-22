@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F1EFE7;
+    width: 100%;
+}
+
+.question{
+    display: flex;
+    justify-content: center;
+}
+
+.ligne{
+    display: flex;
+    justify-content: space-around;
+}

@@ -4,16 +4,20 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import App from "./App";
+import Homepage from "./Routes/Homepage/homepage";
 import Listeanimaux from "./Routes/listeanimaux/listeanimaux.js";
+import Ficheanimal from "./Routes/ficheanimal/ficheanimaladopter.js";
+import Categorie from "./Routes/categorie/categorie.js";
 
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Homepage />} />
       <Route path="/listeanimaux" element={<Listeanimaux />} />
+      <Route path="/ficheanimaladopter" element={<Ficheanimal />} />
+      <Route path="/categorie" element={<Categorie />} />
     </Routes>
   </BrowserRouter>,
   rootElement

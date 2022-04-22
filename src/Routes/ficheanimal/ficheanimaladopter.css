@@ -1,0 +1,30 @@
+.top{
+    height: 550px;
+    background-image: url("../../doggo.png");
+}
+.caract{
+    display:flex ;
+    justify-content: space-around;
+    
+}
+
+.h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.bigbtn{
+    color: white;
+    background-color: #20335f;
+}
+
+.bot{
+    background-color: #FFFAE6;
+    border-radius: 20px 20px 0px 0px;
+}
+.longb{
+    display: flex;
+    justify-self: space-around ;
+    height: 11vh;
+    background-image: url("../../longbar.png");
+}
