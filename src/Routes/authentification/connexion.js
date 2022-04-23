@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 import "./authentification.css";
+
+
 export default function Connexionform () {
     const navigate = useNavigate();
     
@@ -22,7 +24,6 @@ export default function Connexionform () {
     const errorCode = error.code;
     const errorMessage = error.message;
     });
-    const condition = this.value = true;
     }
     const provider = new GoogleAuthProvider();
     const handleGoogle = (e) => {
@@ -45,19 +46,19 @@ export default function Connexionform () {
           const credential = GoogleAuthProvider.credentialFromError(error);
           // ...
         })
-        const condition = this.value = true;
     }
 ;
     return (
         <div class="conteneur">
             <h1>Connexion</h1>
             <form onSubmit={handleSub}>
-                <TextField class="champformulaire" name="email" label="Email" variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
-                <TextField  class="champformulaire" name="password" type="password" label="Mot de passe" variant="standard"  onChange={(e) => setPassword(e.target.value)}/>
-                <Button class="boutonlogin" variant="contained" type="submit">Se connecter </Button>
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" label="Email" variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
+                <label for="password">Mot de passe</label>
+                <input type="text" class="form-control" name="password" type="password" label="Mot de passe" variant="standard"  onChange={(e) => setPassword(e.target.value)}/>
+                <Button variant="contained" type="submit">Valider </Button>
             </form>
             <Button class="btngoogle" variant="contained" onClick={handleGoogle}>Se connecter avec Google</Button>
         </div>
-        
 	);
 }

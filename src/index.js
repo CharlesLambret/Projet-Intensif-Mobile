@@ -11,7 +11,7 @@ import Loader from "./Routes/chargement/chargement.js";
 import Connexionform from "./Routes/authentification/connexion.js";
 import InscriptionForm from "./Routes/authentification/inscription.js";
 import {ChatRoom}  from "./Routes/messagerie/chatroom.js";
-import FormulaireAjout from "./Routes/formulairedepot/formulaire";
+import FormulaireAjout from "./Routes/authentification/formulairedepot.js";
 import Confirmationconnexion from "./Routes/authentification/confirmationconnexion.js";
 import Choixespece from "./Routes/choixespèce/choixespece.js";
 import Pageperso from "./Routes/pageperso/pageperso.js";

@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import * as firebase from 'firebase/app';
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
 
@@ -24,6 +24,7 @@ const firebaseConfig = {
   };
 
 
+
 const appfirebase = initializeApp(firebaseConfig);
 
 // Inscription 
@@ -32,8 +33,6 @@ const auth = getAuth(appfirebase);
 
 // Accéder aux données 
 const db = getFirestore(appfirebase);
+const storage = getStorage(appfirebase);
 
-// Get a list of cities from your database
-
-
-export { appfirebase, firebaseConfig, auth, db};
+export { storage, appfirebase, firebaseConfig, auth, db};

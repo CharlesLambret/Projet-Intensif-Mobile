@@ -1,3 +1,4 @@
+
 .conteneur{
     display:flex;
     flex-direction:column;
@@ -12,9 +13,57 @@
 .conteneur form {
     display:flex;
     flex-direction:column;
-    height:60vh;
+    height:40vh;
 }
-.champformulaire{
-    width:50vw;
-
+.conteneur Label{
+    margin-top:2vh;
+}
+.conteneur input {
+    width:40vw;
+    height:5vh;
+    border:none;
+    background-color:white;
+    margin-top:1vh;
+}
+.conteneur Button {
+    background-color: #20335F;
+    width:20vw;
+    margin-left:10vw;
+    margin-top:3vh;
+}
+.btngoogle{
+    width:20vw;
+    margin-top:3vh;
+    margin-left:0px;
+    color:#20335F;
+    margin-right:10vw;
+    height:5vh;
+    border-radius:5px;
+    background-color:transparent !important;
+    border: solid  #20335F;
+}
+@media(max-width:800px){
+    .conteneur{
+        margin-top:5vh;
+    }
+    .conteneur h1{
+        margin-left:-4vw;
+        margin-bottom:8vh;
+    }
+    .conteneur input{
+        width:70vw;
+        
+    }
+    .btngoogle{
+        margin-left:0px;
+        margin-right:5vw;
+    }
+    .conteneur Button, .btngoogle {
+        width: 60vw;
+        height:10vh;
+        margin-left:5vw;
+        color:white;
+    }
+   
+   
 }

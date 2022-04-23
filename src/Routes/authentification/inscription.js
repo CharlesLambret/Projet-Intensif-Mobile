@@ -1,10 +1,11 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect }from "firebase/auth";
 import {useState} from "react";
-import { auth }  from '../../firebase.js';
+import { auth, db }  from '../../firebase.js';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import "./authentification.css";
+import { addDoc, collection } from "firebase/firestore/lite";
 
 export default function Inscriptionform () {
   const provider = new GoogleAuthProvider();
@@ -28,7 +29,14 @@ export default function Inscriptionform () {
     const errorMessage = error.message;
     // ..
   })
-}
+  addDoc(collection(db, "users"), {
+    Nom: [nom],
+    Prenom: [prenom],
+    Datenaissance: [datenaissance],
+    email: [email],
+    tel: [numerotel],
+  }
+  )}
   const handleGoogle = (e) => {
     e.preventDefault();
     signInWithRedirect(auth, provider)
@@ -55,13 +63,19 @@ export default function Inscriptionform () {
         <div class="conteneur">
             <h1>Création de compte</h1>
             <form onSubmit={handleInsc}>
-                <TextField class="champformulaire" name="nom" label="Nom" variant="standard" onChange={(e) => setNom(e.target.value)}/>
-                <TextField class="champformulaire" name="prenom" label="Prénom" variant="standard" onChange={(e) => setPrenom(e.target.value)} />
-                <TextField class="champformulaire" name="datenaissance" label="Date de naissance" variant="standard"  onChange={(e) => setDatenaissance(e.target.value)} />
-                <TextField class="champformulaire" name="numerotel" type="tel" label="Numéro de téléphone" variant="standard" onChange={(e) => setNumerotel(e.target.value)} />
-                <TextField class="champformulaire" name="email" label="Email" variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
-                <TextField class="champformulaire" name="password" type="password" label="Mot de passe" variant="standard" onChange={(e) => setPassword(e.target.value)}/>
-                <Button class="boutonlogin" variant="contained" type="submit">Se connecter </Button>
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" name="nom" variant="standard" onChange={(e) => setNom(e.target.value)}/>
+                <label for="prenom">Prenom</label>
+                <input type="text"name="prenom"  variant="standard" onChange={(e) => setPrenom(e.target.value)} />
+                <label for="datenaissance">Date de naissance</label>
+                <input type="text" name="datenaissance"  variant="standard"  onChange={(e) => setDatenaissance(e.target.value)} />
+                <label for="numerotel">Numéro de téléphone</label>
+                <input type="text"name="numerotel" type="tel"  variant="standard" onChange={(e) => setNumerotel(e.target.value)} />
+                <label for="email">Email</label>
+                <input type="text" name="email"  variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
+                <label for="password">Mot de passe</label>
+                <input type="text" name="password" type="password"  variant="standard" onChange={(e) => setPassword(e.target.value)}/>
+                <Button variant="contained" type="submit">Valider </Button>
             </form>
             <Button class="btngoogle" variant="contained" onClick={handleGoogle}>S'inscrire avec Google</Button>
         </div>
