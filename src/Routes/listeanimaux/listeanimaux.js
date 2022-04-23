@@ -23,7 +23,7 @@ async function getAnimaux() {
       <div>
       <h1>Super liste d'animaux</h1>
       </div>
-      <div>
+      <div class="carteanimal">
           {animals.map(
               function (item){
                   return  <Link to={"/ficheanimal?animal="+animals.id} ><div className='minifiche'>
@@ -41,7 +41,7 @@ async function getAnimaux() {
       
       </div>
       <Link to="/ficheanimaladopter" >Next</Link> |{" "}
-  
+
   </div>
     )
         };

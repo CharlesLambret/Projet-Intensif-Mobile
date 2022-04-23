@@ -35,3 +35,19 @@
     z-index:1;
     margin-top:-115vh;
 }
+@media(max-width:800px){
+    #containerchoix{
+        width:70vw;
+        margin-left:15vw;
+        justify-content: flex-start;
+    }
+    #btnadopter, #btnceder{
+        width:50vw;
+        height: 10vw;
+    }
+    #decopattes{
+        width:100vw;
+        margin-left:0px;
+        margin-top:-40vh;
+    }
+}

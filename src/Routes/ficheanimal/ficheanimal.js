@@ -2,8 +2,9 @@ import { Button } from '@mui/material';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { useNavigate } from 'react-router-dom';
 import { appfirebase, firebaseConfig } from '../../firebase';
+import { Navbar } from '../../navbar/navbar.js';
 
-async function Ficheanimal() {
+export async function Ficheanimal() {
 const [selected, setSelected] = useState(null);
 const [animals, setListeanimaux] = useState([]);
 const db = getFirestore(appfirebase);
@@ -76,7 +77,7 @@ return(
         </div>
 
     </div>
-
+    <Navbar/>
 </div>)
    
 }

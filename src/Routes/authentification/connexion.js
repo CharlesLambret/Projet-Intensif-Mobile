@@ -1,15 +1,13 @@
-import { auth }  from '../../firebase.js';
+import { auth, appfirebase }  from '../../firebase.js';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import {useState} from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
-
-async function HandleSubmit() {
-   }
-
+import "./authentification.css";
 export default function Connexionform () {
     const navigate = useNavigate();
+    
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -19,13 +17,12 @@ export default function Connexionform () {
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    // ...
     })
     .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     });
-    setTimeout(function Redirect () {navigate("/confirmationconnexion", { replace: true })}, 1000);
+    const condition = this.value = true;
     }
     const provider = new GoogleAuthProvider();
     const handleGoogle = (e) => {
@@ -47,18 +44,20 @@ export default function Connexionform () {
           // The AuthCredential type that was used.
           const credential = GoogleAuthProvider.credentialFromError(error);
           // ...
-        });
-        setTimeout(function Redirect () {navigate("/confirmationconnexion", { replace: true })}, 1000);
-      }
+        })
+        const condition = this.value = true;
+    }
+;
     return (
-        <div>
+        <div class="conteneur">
             <h1>Connexion</h1>
             <form onSubmit={handleSub}>
-                <TextField  name="email" label="Email" variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
-                <TextField  name="password" type="password" label="Mot de passe" variant="standard"  onChange={(e) => setPassword(e.target.value)}/>
-                <Button variant="contained" type="submit">Se connecter </Button>
+                <TextField class="champformulaire" name="email" label="Email" variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
+                <TextField  class="champformulaire" name="password" type="password" label="Mot de passe" variant="standard"  onChange={(e) => setPassword(e.target.value)}/>
+                <Button class="boutonlogin" variant="contained" type="submit">Se connecter </Button>
             </form>
             <Button class="btngoogle" variant="contained" onClick={handleGoogle}>Se connecter avec Google</Button>
         </div>
+        
 	);
 }

@@ -1,0 +1,20 @@
+.conteneur{
+    display:flex;
+    flex-direction:column;
+    width:70vw;
+    margin-left:15vw;
+    justify-content:center;
+    align-items:center;
+}
+.conteneur h1{
+    align-self:flex-start;
+}
+.conteneur form {
+    display:flex;
+    flex-direction:column;
+    height:60vh;
+}
+.champformulaire{
+    width:50vw;
+
+}
