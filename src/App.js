@@ -1,5 +1,5 @@
+import UserProvider from './providers/userproviders';
 
-
-export default function App() {
+export default function App(UserProvider) {
 
 }

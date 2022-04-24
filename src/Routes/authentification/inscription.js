@@ -6,7 +6,16 @@ import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import "./authentification.css";
 import { addDoc, collection } from "firebase/firestore/lite";
+import 'intl-tel-input/build/css/intlTelInput.css';
 
+ export function showHide() {
+  var x = document.getElementById("mdp")
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
 export default function Inscriptionform () {
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
@@ -22,6 +31,7 @@ export default function Inscriptionform () {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    if (user) {setTimeout(function Redirect () {navigate("/confirmationconnexion", { replace: true })}, 1000)};
     // ...
   })
   .catch((error) => {
@@ -36,7 +46,8 @@ export default function Inscriptionform () {
     email: [email],
     tel: [numerotel],
   }
-  )}
+  )
+}
   const handleGoogle = (e) => {
     e.preventDefault();
     signInWithRedirect(auth, provider)
@@ -57,7 +68,6 @@ export default function Inscriptionform () {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
-    setTimeout(function Redirect () {navigate("/confirmationconnexion", { replace: true })}, 1000);
   }
     return (
         <div class="conteneur">
@@ -68,13 +78,14 @@ export default function Inscriptionform () {
                 <label for="prenom">Prenom</label>
                 <input type="text"name="prenom"  variant="standard" onChange={(e) => setPrenom(e.target.value)} />
                 <label for="datenaissance">Date de naissance</label>
-                <input type="text" name="datenaissance"  variant="standard"  onChange={(e) => setDatenaissance(e.target.value)} />
+                <input type="date" name="datenaissance"  variant="standard"  onChange={(e) => setDatenaissance(e.target.value)} />
                 <label for="numerotel">Numéro de téléphone</label>
-                <input type="text"name="numerotel" type="tel"  variant="standard" onChange={(e) => setNumerotel(e.target.value)} />
+                <input type="tel" name="numerotel" variant="standard" onChange={(e) => setNumerotel(e.target.value)} />
                 <label for="email">Email</label>
-                <input type="text" name="email"  variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" name="email"  variant="standard"  onChange={(e) => setEmail(e.target.value)}/>
                 <label for="password">Mot de passe</label>
-                <input type="text" name="password" type="password"  variant="standard" onChange={(e) => setPassword(e.target.value)}/>
+                <input name="password" type="password" id="mdp" variant="standard" onChange={(e) => setPassword(e.target.value)}/>
+                <input type="checkbox" onclick={showHide} style="margin-top:0vh;"/>Show Password 
                 <Button variant="contained" type="submit">Valider </Button>
             </form>
             <Button class="btngoogle" variant="contained" onClick={handleGoogle}>S'inscrire avec Google</Button>

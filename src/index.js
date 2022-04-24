@@ -15,21 +15,24 @@ import FormulaireAjout from "./Routes/authentification/formulairedepot.js";
 import Confirmationconnexion from "./Routes/authentification/confirmationconnexion.js";
 import Choixespece from "./Routes/choixespèce/choixespece.js";
 import Pageperso from "./Routes/pageperso/pageperso.js";
+import UserContext from "./userprovider.js";
 
 const rootElement = document.getElementById("root");
+const { user } = useContext(UserContext);
+
 render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Loader />} />
       <Route path="/choix" element={<Choix />} />
-      <Route path="/pageperso" element={<Pageperso/>}/>
+      <Route path="/choixespece" element={<Choixespece/>}/>
       <Route path="/listeanimaux" element={<Listeanimaux />} />
+      <Route path="/inscription" element={<InscriptionForm/>}/>
       <Route path="/connexion" element={<Connexionform />} />
       <Route path="/confirmationconnexion" element={<Confirmationconnexion/>}/>
-      <Route path="/inscription" element={<InscriptionForm/>}/>
       <Route path="/messagerie" element={<ChatRoom/>}/>
       <Route path="/formulaire" element={<FormulaireAjout/>}/>
-      <Route path="/choixespece" element={<Choixespece/>}/>
+      <Route path="/pageperso" element={<Pageperso/>}/>
     </Routes>
   </BrowserRouter>,
   rootElement
